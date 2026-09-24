@@ -28,56 +28,60 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 bg-ink/80 backdrop-blur transition-colors duration-300 ${
-        scrolled || open ? "border-b border-line" : "border-b border-transparent"
-      }`}
-    >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-20">
-        <a href="#top" aria-label={`${site.name} home`} onClick={() => setOpen(false)}>
-          <Image src={`${site.basePath}/logo.png`} alt={site.name} width={670} height={316} priority className="h-10 w-auto lg:h-12" />
-        </a>
-
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Main">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="font-display text-[15px] font-semibold uppercase tracking-[0.12em] text-smoke transition-colors hover:text-gold"
-            >
-              {l.label}
-            </a>
-          ))}
-          <a
-            href={tel}
-            className="rounded-sm bg-gold px-4 py-2 font-display text-[15px] font-bold uppercase tracking-wider text-ink transition-colors hover:bg-gold-pale"
-          >
-            Call {site.phoneDisplay}
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 backdrop-blur transition-colors duration-300 ${
+          open ? "bg-ink" : "bg-ink/80"
+        } ${scrolled || open ? "border-b border-line" : "border-b border-transparent"}`}
+      >
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-20">
+          <a href="#top" aria-label={`${site.name} home`} onClick={() => setOpen(false)}>
+            <Image src={`${site.basePath}/logo.png`} alt={site.name} width={670} height={316} priority className="h-10 w-auto lg:h-12" />
           </a>
-        </nav>
 
-        <button
-          type="button"
-          className="relative -mr-2 flex h-11 w-11 items-center justify-center lg:hidden"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span
-            className={`absolute h-0.5 w-6 bg-gold transition-transform duration-300 ${open ? "rotate-45" : "-translate-y-2"}`}
-          />
-          <span className={`absolute h-0.5 w-6 bg-gold transition-opacity ${open ? "opacity-0" : ""}`} />
-          <span
-            className={`absolute h-0.5 w-6 bg-gold transition-transform duration-300 ${open ? "-rotate-45" : "translate-y-2"}`}
-          />
-        </button>
-      </div>
+          <nav className="hidden items-center gap-8 lg:flex" aria-label="Main">
+            {links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className="font-display text-[15px] font-semibold uppercase tracking-[0.12em] text-smoke transition-colors hover:text-gold"
+              >
+                {l.label}
+              </a>
+            ))}
+            <a
+              href={tel}
+              className="rounded-sm bg-gold px-4 py-2 font-display text-[15px] font-bold uppercase tracking-wider text-ink transition-colors hover:bg-gold-pale"
+            >
+              Call {site.phoneDisplay}
+            </a>
+          </nav>
 
+          <button
+            type="button"
+            className="relative -mr-2 flex h-11 w-11 items-center justify-center lg:hidden"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span
+              className={`absolute h-0.5 w-6 bg-gold transition-transform duration-300 ${open ? "rotate-45" : "-translate-y-2"}`}
+            />
+            <span className={`absolute h-0.5 w-6 bg-gold transition-opacity ${open ? "opacity-0" : ""}`} />
+            <span
+              className={`absolute h-0.5 w-6 bg-gold transition-transform duration-300 ${open ? "-rotate-45" : "translate-y-2"}`}
+            />
+          </button>
+        </div>
+      </header>
+
+      {/* Kept outside <header>: its backdrop-filter would otherwise become the
+          containing block for this fixed panel and collapse it to header height. */}
       <nav
         id="mobile-nav"
         aria-label="Mobile"
-        className={`pinstripe fixed inset-x-0 top-16 bottom-0 flex flex-col px-6 pt-6 pb-28 transition-[opacity,visibility] duration-300 lg:hidden ${
+        className={`pinstripe fixed inset-x-0 top-16 bottom-0 z-40 flex flex-col px-6 pt-6 pb-28 transition-[opacity,visibility] duration-300 lg:hidden ${
           open ? "visible opacity-100" : "invisible opacity-0"
         }`}
       >
@@ -96,6 +100,6 @@ export default function Header() {
           {site.contactPerson} · {site.phoneDisplay}
         </p>
       </nav>
-    </header>
+    </>
   );
 }
