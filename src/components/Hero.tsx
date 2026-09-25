@@ -53,39 +53,34 @@ export default function Hero() {
         <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:justify-self-end">
           <div className="rotate-[1.5deg] text-ink drop-shadow-[0_30px_40px_rgb(0_0_0/0.6)]">
             <div className="rounded-t-sm bg-paper">
-            <div className="flex items-center justify-between border-b-2 border-dashed border-ink/20 px-6 py-4">
-              <span className="font-display text-xs font-bold uppercase tracking-[0.3em] text-ink/60">
-                Consignment note
-              </span>
-              <span className="font-display text-xs font-bold tracking-widest text-ink/60">MB/ODI</span>
-            </div>
-            <dl className="px-6 py-2">
-              {docket.map(([k, v]) => (
-                <div key={k} className="flex flex-col border-b border-ink/10 py-3 last:border-0 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                  <dt className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-ink/50">{k}</dt>
-                  <dd className="font-display text-lg font-bold sm:text-right">{v}</dd>
+              <div className="flex items-center justify-between border-b-2 border-dashed border-ink/20 px-6 py-4">
+                <span className="font-display text-xs font-bold uppercase tracking-[0.3em] text-ink/60">
+                  Consignment note
+                </span>
+                <span className="font-display text-xs font-bold tracking-widest text-ink/60">MB/ODI</span>
+              </div>
+              <dl className="px-6 py-2">
+                {docket.map(([k, v]) => (
+                  <div key={k} className="flex flex-col border-b border-ink/10 py-3 last:border-0 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+                    <dt className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-ink/50">{k}</dt>
+                    <dd className="font-display text-lg font-bold sm:text-right">{v}</dd>
+                  </div>
+                ))}
+              </dl>
+              <div className="flex items-end justify-between gap-4 px-6 pt-2 pb-6">
+                <div>
+                  <p className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-ink/50">Proprietor</p>
+                  <p className="font-display text-2xl font-bold italic">{site.contactPerson}</p>
                 </div>
-              ))}
-            </dl>
-            <div className="flex items-end justify-between gap-4 px-6 pt-2 pb-6">
-              <div>
-                <p className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-ink/50">Proprietor</p>
-                <p className="font-display text-2xl font-bold italic">{site.contactPerson}</p>
+                <div className="-rotate-12 rounded-sm border-[3px] border-gold-deep px-3 py-1 text-center font-display leading-none font-extrabold uppercase text-gold-deep opacity-90">
+                  <span className="block text-[10px] tracking-[0.3em]">Ready to</span>
+                  <span className="block text-xl tracking-wider">Dispatch</span>
+                </div>
               </div>
-              <div className="-rotate-12 rounded-sm border-[3px] border-gold-deep px-3 py-1 text-center font-display leading-none font-extrabold uppercase text-gold-deep opacity-90">
-                <span className="block text-[10px] tracking-[0.3em]">Ready to</span>
-                <span className="block text-xl tracking-wider">Dispatch</span>
-              </div>
-            </div>
             </div>
             <div className="perforated h-3 rotate-180" aria-hidden />
           </div>
-          <a
-            href={tel}
-            className="absolute -bottom-10 -left-2 hidden rounded-sm bg-gold px-4 py-3 font-display text-sm font-bold uppercase tracking-wider text-ink shadow-lg sm:block lg:-left-10"
-          >
-            Call now → {site.phoneDisplay}
-          </a>
+
         </div>
       </div>
 
