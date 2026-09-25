@@ -12,7 +12,12 @@ export const site = {
   // Origin only (no path); the Pages workflow sets this and the basePath.
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   basePath: process.env.NEXT_PUBLIC_BASE_PATH ?? "",
+  description:
+    "MB Associates, Sambalpur: bulk transportation, material supply and hazardous waste transportation for aluminium, cement, steel and power plants across Odisha.",
 };
+
+/** Absolute URL of the site root, including the basePath (e.g. https://x.github.io/mbassociates). */
+export const siteUrl = `${site.url}${site.basePath}`;
 
 export const tel = `tel:+91${site.phone}`;
 export const whatsapp = (text?: string) =>
