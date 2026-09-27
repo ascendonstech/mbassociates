@@ -2,12 +2,12 @@ import { tel, whatsapp } from "@/lib/site";
 
 export default function MobileDock() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t border-line bg-ink/95 pb-[env(safe-area-inset-bottom)] backdrop-blur lg:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-md shadow-lg lg:hidden">
       <a
         href={tel}
-        className="flex items-center justify-center gap-2 py-4 font-display text-base font-bold uppercase tracking-wider text-white"
+        className="flex items-center justify-center gap-2 py-4 font-display text-base font-bold uppercase tracking-wider text-slate-800 transition-colors hover:bg-slate-50"
       >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden className="text-gold">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden className="text-amber-600">
           <path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z" />
         </svg>
         Call
@@ -16,7 +16,7 @@ export default function MobileDock() {
         href={whatsapp("Hello MB Associates, I would like to discuss a transport requirement.")}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center gap-2 bg-gold py-4 font-display text-base font-bold uppercase tracking-wider text-ink"
+        className="flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 py-4 font-display text-base font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:from-emerald-700 hover:to-teal-700"
       >
         WhatsApp
       </a>

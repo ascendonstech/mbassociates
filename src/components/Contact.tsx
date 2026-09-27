@@ -4,8 +4,8 @@ import { useState } from "react";
 import { mapQuery, services, site, tel, whatsapp } from "@/lib/site";
 
 const field =
-  "w-full rounded-sm border border-line bg-ink px-4 py-3.5 text-base text-white placeholder:text-smoke/60 focus:border-gold focus:outline-none";
-const label = "mb-2 block font-display text-xs font-semibold uppercase tracking-[0.2em] text-smoke";
+  "w-full rounded-md border border-slate-300 bg-white px-4 py-3.5 text-base text-slate-900 placeholder:text-slate-400 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 focus:outline-none transition-all";
+const label = "mb-2 block font-display text-xs font-semibold uppercase tracking-[0.2em] text-slate-600";
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -34,34 +34,34 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="bg-ink py-20 sm:py-28">
+    <section id="contact" className="bg-slate-50 py-20 sm:py-28">
       <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
         <div>
-          <p className="mb-4 flex items-center gap-3 font-display text-sm font-semibold uppercase tracking-[0.3em] text-gold">
-            <span className="h-px w-10 bg-gold" />
+          <p className="mb-4 flex items-center gap-3 font-display text-sm font-semibold uppercase tracking-[0.3em] text-amber-700">
+            <span className="h-px w-10 bg-amber-500" />
             Contact
           </p>
-          <h2 className="font-display text-5xl leading-[0.92] font-extrabold uppercase sm:text-6xl">
+          <h2 className="font-display text-5xl leading-[0.92] font-extrabold uppercase sm:text-6xl text-slate-900">
             Got a load?
             <br />
             <span className="gold-text">Call Piyush.</span>
           </h2>
-          <p className="mt-6 max-w-md text-lg leading-relaxed text-smoke">
+          <p className="mt-6 max-w-md text-lg leading-relaxed text-slate-600">
             You talk to the person who runs the fleet, not a call centre. Share the material and route and
             you&apos;ll get a rate back quickly.
           </p>
 
-          <div className="mt-10 space-y-px overflow-hidden rounded-sm bg-line">
-            <a href={tel} className="group flex items-center justify-between gap-4 bg-coal p-6 transition-colors hover:bg-slate">
+          <div className="mt-10 space-y-3 overflow-hidden rounded-xl">
+            <a href={tel} className="group flex items-center justify-between gap-4 rounded-xl border border-amber-200 bg-gradient-to-r from-amber-50 to-amber-100/60 p-6 transition-all hover:border-amber-300 hover:shadow-md">
               <div>
-                <p className={label}>{site.contactPerson} · Phone</p>
-                <p className="font-display text-3xl font-bold tracking-wide sm:text-4xl">{site.phoneDisplay}</p>
+                <p className="mb-2 block font-display text-xs font-semibold uppercase tracking-[0.2em] text-amber-900">{site.contactPerson} · Phone</p>
+                <p className="font-display text-3xl font-bold tracking-wide text-amber-950 sm:text-4xl">{site.phoneDisplay}</p>
               </div>
-              <span className="font-display text-3xl text-gold transition-transform group-hover:translate-x-1">→</span>
+              <span className="font-display text-3xl text-amber-700 transition-transform group-hover:translate-x-1">→</span>
             </a>
-            <div className="bg-coal p-6">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-xs">
               <p className={label}>Office</p>
-              <address className="text-lg leading-relaxed not-italic">
+              <address className="text-lg leading-relaxed not-italic text-slate-800">
                 {site.address.line1}
                 <br />
                 {site.address.line2}
@@ -72,17 +72,17 @@ export default function Contact() {
             <iframe
               title="MB Associates location"
               src={`https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=14&output=embed`}
-              className="block h-60 w-full bg-coal grayscale invert-[0.9] hue-rotate-180"
+              className="block h-60 w-full rounded-xl border border-slate-200 bg-slate-100 shadow-xs"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
         </div>
 
-        <form onSubmit={submit} className="self-start rounded-sm border border-line bg-coal p-6 sm:p-9">
-          <div className="mb-7 flex items-center justify-between border-b border-line pb-5">
-            <h3 className="font-display text-2xl font-bold uppercase tracking-wide">Request a quote</h3>
-            <span className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-smoke">via WhatsApp</span>
+        <form onSubmit={submit} className="self-start rounded-2xl border border-slate-200 bg-white p-6 shadow-md sm:p-9">
+          <div className="mb-7 flex items-center justify-between border-b border-slate-100 pb-5">
+            <h3 className="font-display text-2xl font-bold uppercase tracking-wide text-slate-900">Request a quote</h3>
+            <span className="font-display text-xs font-bold uppercase tracking-wider rounded-full bg-emerald-100 text-emerald-800 px-3 py-1">via WhatsApp</span>
           </div>
           <div className="grid gap-5 sm:grid-cols-2">
             <div>
@@ -124,13 +124,13 @@ export default function Contact() {
           </div>
           <button
             type="submit"
-            className="mt-7 w-full rounded-sm bg-gold px-6 py-4 font-display text-lg font-bold uppercase tracking-wider text-ink transition-colors hover:bg-gold-pale"
+            className="mt-7 w-full rounded-md bg-gradient-to-r from-emerald-600 to-teal-600 px-6 py-4 font-display text-lg font-bold uppercase tracking-wider text-white shadow-md shadow-emerald-600/20 transition-all hover:from-emerald-700 hover:to-teal-700 hover:shadow-lg"
           >
             Send enquiry on WhatsApp
           </button>
-          <p className="mt-4 text-center text-sm text-smoke">
+          <p className="mt-4 text-center text-sm text-slate-500">
             Prefer to talk?{" "}
-            <a href={tel} className="text-gold underline underline-offset-4">
+            <a href={tel} className="font-semibold text-amber-700 underline underline-offset-4 hover:text-amber-800">
               Call {site.phoneDisplay}
             </a>
           </p>

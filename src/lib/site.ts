@@ -1,9 +1,9 @@
 export const site = {
   name: "MB Associates",
   tagline: "Built for Bulk & Trusted to deliver every load",
-  contactPerson: "Piyush Bansal",
-  phone: "9709283664",
-  phoneDisplay: "+91 97092 83664",
+  contactPerson: "Pulkit Goel",
+  phone: "8594851716",
+  phoneDisplay: "+91 89548 51716",
   address: {
     line1: "Ward No. 5, Marwari Para",
     line2: "Rengali, Sambalpur",
