@@ -44,7 +44,7 @@ export default function Contact() {
           <h2 className="font-display text-5xl leading-[0.92] font-extrabold uppercase sm:text-6xl text-slate-900">
             Got a load?
             <br />
-            <span className="gold-text">Call Piyush.</span>
+            <span className="gold-text">Call Pulkit Goel.</span>
           </h2>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-slate-600">
             You talk to the person who runs the fleet, not a call centre. Share the material and route and
